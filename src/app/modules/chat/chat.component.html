@@ -1,0 +1,25 @@
+<mat-drawer-container>
+    <mat-drawer class="left-panel" mode="side" opened="true" position="start">
+      Left panel
+    </mat-drawer>
+    <mat-drawer-content class="content-panel">
+      <mat-toolbar>
+        <div fxFill fxLayout="row" fxLayoutAlign="start center">
+          <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+            <span>Content-panel</span>
+          </div>
+          <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+            <button mat-flat-button color="primary" (click)="drawer.toggle()">
+              <div fxFlex fxLayout="row" fxLayoutAlign="center center">
+                สร้าง
+              </div>
+            </button>
+          </div>
+        </div>
+      </mat-toolbar>
+    </mat-drawer-content>
+    <mat-drawer #drawer class="right-panel" mode="over" position="end" fxLayout="column" fxLayoutAlign="start center">
+      Right panel
+    </mat-drawer>
+  </mat-drawer-container>
+  

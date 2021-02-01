@@ -104,6 +104,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'chat',
+    loadChildren:()=> import('./modules/chat/chat.module').then(m=>m.ChatModule)
+  },
+  {
     path: '**',
     redirectTo: 'deals'
   }
