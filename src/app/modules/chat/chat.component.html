@@ -1,25 +1,89 @@
 <mat-drawer-container>
     <mat-drawer class="left-panel" mode="side" opened="true" position="start">
-      Left panel
-    </mat-drawer>
-    <mat-drawer-content class="content-panel">
-      <mat-toolbar>
-        <div fxFill fxLayout="row" fxLayoutAlign="start center">
-          <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
-            <span>Content-panel</span>
-          </div>
-          <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
-            <button mat-flat-button color="primary" (click)="drawer.toggle()">
-              <div fxFlex fxLayout="row" fxLayoutAlign="center center">
-                สร้าง
-              </div>
+        <mat-toolbar class="toolbar">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+                <span>ALL</span>
+                <input class="search" matInput type="search" placeholder="ค้นหา">
+                <!-- <mat-form-field class="search" appearance="outline">
+                    <input matInput placeholder="ค้นหา">
+                    <mat-icon matSuffix>search</mat-icon>
+                </mat-form-field> -->
             </button>
-          </div>
+        </mat-toolbar>
+        <hr>
+        <div class="NameChat" fxLayout="column" (click)="toggle(true)">
+            <div class="date" fxFlexAlign="end">yesterday</div>
+            <div fxLayout="row" fxLayoutAlign="start" fxFlex="100">
+                <div fxLayout="row" fxLayoutAlign="center" fxFlex="20">
+                    <img class="app-logo"
+                        src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed"
+                        alt="">
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start" fxFlex="80">
+                    <div>
+                        <strong>
+                            Pikachu
+                        </strong>
+                    </div>
+                    <div class="chat" fxFlexAlign="start">Pika Pika Chu!!!!!</div>
+                </div>
+            </div>
         </div>
-      </mat-toolbar>
-    </mat-drawer-content>
-    <mat-drawer #drawer class="right-panel" mode="side" position="end" opened="true" fxLayout="column" fxLayoutAlign="start center">
-      Right panel
+        <hr>
     </mat-drawer>
-  </mat-drawer-container>
-  
+
+    <mat-drawer-content class="content-panel">
+        <mat-toolbar>
+            <div fxFill fxLayout="row" fxLayoutAlign="start center">
+                <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
+                    <img class="Pikachu"
+                        src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed"
+                        alt=""> &nbsp;&nbsp;
+                    <span>Pickachu</span>
+                </div>
+            </div>
+        </mat-toolbar>
+        <div fxLayout="row" fxLayoutAlign="center">
+            <img class="img"
+                src="https://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=https%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2017%2F09%2Fnexus2cee_android-messages-notification-bug.png&w=728">
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center">
+            <mat-form-field class="send" appearance="outline">
+                <mat-label>Types something</mat-label>
+                <input matInput placeholder="">
+                <mat-icon matSuffix>send</mat-icon>
+            </mat-form-field>
+
+        </div>
+
+        <!-- <span class="all">ไม่มีข้อความเข้ามาใหม่</span> -->
+    </mat-drawer-content>
+    <mat-drawer #drawer class="right-panel" mode="side" position="end" opened="true" fxLayout="column"
+        fxLayoutAlign="start center">
+
+        <mat-toolbar class="basic">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>home</mat-icon>
+                <span class="all">ข้อมูลผู้ติดต่อ</span>
+            </button>
+        </mat-toolbar>
+        <hr>&nbsp;
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="toggle(false)">
+            <mat-icon aria-label="sidenav toggle icon">keyboard_tab</mat-icon>
+        </button>
+
+        <div fxFlexAlign="center">
+            <img class="userlogo"
+                src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed"
+                alt="">
+        </div>
+        <div class="contactName">
+            <strong>
+                pikachu
+            </strong>
+            <mat-icon>create</mat-icon>
+        </div>
+
+    </mat-drawer>
+</mat-drawer-container>

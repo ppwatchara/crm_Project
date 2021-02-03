@@ -24,7 +24,7 @@ const routes: Routes = [
       lookupFields: ['noteRelateID', 'relateToID',  'dealContact','contactAddress','contactPhoneNo', 'contactLineId'],
       layouts: ['notes', 'activitiestask', 'activitiesevent', 'activitiescall', 'deals']
     },
-    canActivate:[AuthGuard]
+    // canActivate:[AuthGuard]
   },
   {
     path: 'customer',
@@ -38,7 +38,8 @@ const routes: Routes = [
       masterApiUrl: 'customers',
       lookupFields: ['noteRelateID', 'relateToID', 'dealCustomer'],
       layouts: ['notes', 'activitiestask', 'activitiesevent', 'activitiescall', 'deals']
-    },canActivate:[AuthGuard]
+    },
+    // canActivate:[AuthGuard]
   },
   {
     path: 'deals',
@@ -52,7 +53,8 @@ const routes: Routes = [
       masterApiUrl: 'deals',
       lookupFields: ['noteRelateID', 'relateToID', 'dealCustomer', 'dealContact', 'deal'],
       layouts: ['fm-mk-06', 'fm-mk-13', 'fm-mk-11', 'so']
-    },canActivate:[AuthGuard]
+    },
+    // canActivate:[AuthGuard]
   },
   {
     path: 'fm-mk-06/:id',
@@ -61,7 +63,8 @@ const routes: Routes = [
       masterApiUrl: 'fm-mk-06',
       lookupFields: ['hdr'],
       layouts: ['fm-mk-06-dtl']
-    },canActivate:[AuthGuard]
+    },
+    // canActivate:[AuthGuard]
   },
   {
     path: 'fm-mk-06-dtl/:id',
@@ -71,7 +74,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['bom','route', 'spec-result']
     },
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'fm-mk-13/:id',
@@ -81,7 +84,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['fm-mk-13-dtl']
     },
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'fm-mk-11/:id',
@@ -91,7 +94,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['fm-mk-11-dtl']
     },
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'so/:id',
@@ -101,7 +104,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['so-dtl']
     },
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'chat',

@@ -27,7 +27,7 @@
         </a>
         <a [routerLink]="['/chat']" routerLinkActive="router-link-active">
           <button mat-icon-button>
-            <mat-icon>dashboard</mat-icon>
+            <mat-icon>message</mat-icon>
           </button>
         </a>
       </div>
@@ -46,9 +46,9 @@
     <mat-toolbar>
       <div fxFill fxLayout="row" fxLayoutAlign="start center">
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
-          <button type="button" aria-label="Toggle sidenav" mat-icon-button>
+          <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button>
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-          </button>
+          </button> -->
           <span>Module Name</span>
         </div>
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
@@ -72,7 +72,7 @@
       </div>
 
     </mat-toolbar>
-    <mat-toolbar class="sub-toolbar" color="primary" *ngIf="auth.authStateObservable$ | async">
+    <mat-toolbar class="sub-toolbar"  *ngIf="auth.authStateObservable$ | async">
       <span>{{pageName$ | async | json | titleurl | titlecase}}</span>
     </mat-toolbar>
     <!-- Add Content Here -->
