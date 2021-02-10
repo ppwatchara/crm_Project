@@ -57,6 +57,11 @@ const routes: Routes = [
     // canActivate:[AuthGuard]
   },
   {
+    path: 'note',
+    loadChildren: () => import('./modules/generic-master/generic-master.module').then(m => m.GenericMasterModule),
+    data: { layouts: ['notes'] }
+  },
+  {
     path: 'fm-mk-06/:id',
     loadChildren: () => import('./modules/generic-detail/generic-detail.module').then(m => m.GenericDetailModule),
     data: {

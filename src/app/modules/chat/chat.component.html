@@ -32,7 +32,7 @@
     </mat-drawer>
 
     <mat-drawer-content class="content-panel">
-        <mat-toolbar>
+        <mat-toolbar class="toolbar-content">
             <div fxFill fxLayout="row" fxLayoutAlign="start center">
                 <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
                     <img class="Pikachu"
@@ -59,11 +59,38 @@
                 </div>
             </div>
         </mat-toolbar>
-        <div fxLayout="row" fxLayoutAlign="center">
-            <img class="img"
-                src="https://www.androidpolice.com/wp-content/themes/ap2/ap_resize/ap_resize.php?src=https%3A%2F%2Fwww.androidpolice.com%2Fwp-content%2Fuploads%2F2017%2F09%2Fnexus2cee_android-messages-notification-bug.png&w=728">
+        <div class="chatzone">
+            <div fxLayout="column" fxLayoutAlign="space-around start">
+                <mat-card class="left-chat">สวัสดี</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around end">
+                <mat-card class="right-chat">ว่าไง ?</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around start">
+                <mat-card class="left-chat">ทำอะไรอยู่ ?</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around end">
+                <mat-card class="right-chat">กำลังเร่งผลิตครีมสูตรใหม่</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around start">
+                <mat-card class="left-chat">ตอนนี้อยู่ในขั้นตอนใด</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around end">
+                <mat-card class="right-chat">กำลังผลิตครับ</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around start">
+                <mat-card class="left-chat">โอเคครับ</mat-card>
+            </div>
+            <div fxLayout="column" fxLayoutAlign="space-around end">
+                <mat-card class="right-chat">ครับ</mat-card>
+            </div>
+
         </div>
-        <div fxLayout="row" fxLayoutAlign="center">
+
+
+
+
+        <div fxLayout=" row" fxLayoutAlign="center end">
             <mat-form-field class="send" appearance="outline">
                 <mat-label>Types something</mat-label>
                 <input matInput placeholder="">
@@ -103,7 +130,11 @@
             </strong>
             <mat-icon>create</mat-icon>
         </div>
+        <div class="addtage">
+            + Add Tage
+        </div>
         &nbsp;
+        <hr>
         <!-- <hr> -->
         <div fxLayout="row">
             <div fxLayout="column" fxLayoutAlign="start" fxFlex="90">
@@ -114,13 +145,13 @@
                 </span>
             </div>
             <div fxLayout="column" fxLayoutAlign="center" fxFlex="20">
-                <button mat-icon-button (click)="onAddNew()">
+                <button mat-icon-button [routerLink]="['/note']" routerLinkActive="router-link-active">
                     <mat-icon class="addbutton">add_circle_outline</mat-icon>
                 </button>
             </div>
-            
 
-           
+
+
 
             <!-- <div *ngIf="layout?.table">
 
@@ -130,8 +161,8 @@
 
             </div> -->
         </div>
-        <div fxLayout="row" fxLayoutAlign="center" >
-            <p class="note"> 
+        <div fxLayout="row" fxLayoutAlign="center">
+            <p class="note">
                 หากคุณต้องเพิ่มโน้ตให้กดที่ปุ่ม +
             </p>
         </div>
