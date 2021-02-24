@@ -64,7 +64,7 @@
             </div>
         </mat-toolbar>
 
-        <div fxLayout="column" style="padding: 10px;">
+        <div fxFill fxLayout="column" style="padding: 10px;">
             <div *ngFor="let chat of messages">
                 <div fxLayout="row" *ngFor="let item of chat?.messaging">
                     <div fxLayoutAlign="start center">
@@ -94,8 +94,11 @@
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="send" appearance="outline" fxFlex>
                         <mat-label>Types something</mat-label>
-                        <input matInput [(ngModel)]="message" placeholder="">
-                        <mat-icon matSuffix (click)="sendMessage()">send</mat-icon>
+                        <textarea matInput [(ngModel)]="message"
+                            (keyup.enter)="sendMessage()" fxFlex></textarea>
+                        <button mat-flat-button (click)="sendMessage()">
+                            <mat-icon>send</mat-icon>
+                        </button>
                     </mat-form-field>
                 </div>
             </div>

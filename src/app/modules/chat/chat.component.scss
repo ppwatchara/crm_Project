@@ -146,12 +146,20 @@
         border-radius: 50%;
       }
       .toolbar-send{
-        position:sticky;
-        bottom:0 !important;
-        height: auto;
-        font-size:15px ;
-        background-color: whitesmoke;
+      position: sticky;
+      bottom: 0 !important;
+      background-color: white;
+      textarea {
+      background-color: white;
       }
+      button{
+      height: 20px;
+      background-color: white;
+      }
+      mat-icon{
+      color: black;
+      }
+}
       .send{
         padding-left: 10px;
         padding-right: 10px;
