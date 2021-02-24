@@ -1,63 +1,63 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { NgZone } from '@angular/core';
+import { SseService } from '../shared/services/sse.service';
+import { Observable } from 'rxjs';
+import { rejects } from 'assert';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService implements Resolve<any> {
+export class ChatService {
 
-  private layoutChanged$ = new BehaviorSubject<any[]>([]);
-  public layoutChangedObservable$ = this.layoutChanged$.asObservable();
-  private onDataChanged$ = new BehaviorSubject<any[]>([]);
-  public onDataChangedObservable$ = this.onDataChanged$.asObservable();
-  layouts: any[];
-  apiUrl: string = `${environment.apiUrl}api`;
+  constructor(private httpClient: HttpClient, private zone: NgZone, private ssService: SseService) { }
+  getServerEventSource(url: string) {
 
-  constructor(private httpClient: HttpClient) { }
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    this.getUserdata();
-    return;
-  }
+    return Observable.create(observer => {
+      const eventSource = this.ssService.getEventSource(url);
+      console.log(eventSource);
 
-  getLayouts(dataLayouts: string[]): any {
-    this.httpClient.get(`${this.apiUrl}/layouts`)
-      .pipe(
-        map((layouts: any) => {
-          if (dataLayouts) {
-            // console.log(layouts);
-            // console.log(layouts.filter(layout => dataLayouts.includes(layout.key)))
-            return layouts.filter(layout => dataLayouts.includes(layout.key))
+      // eventSource.onopen = open => {
+      //   console.log(open);
+      //   this.zone.run(() => {
+      //     observer.next(open);
+      //   });
+      // };
 
-          } else {
-            return layouts;
-          }
-        })
-      )
-      .subscribe((layouts: any[]) => {
-        console.log(layouts);
-        this.layouts = layouts;
-        // console.log(this.layouts);
-        this.getListData(this.layouts[0].apiUrl);
-        // console.log(this.layouts[0].apiUrl);
-        this.layoutChanged$.next(layouts.sort((a, b) => a.order - b.order));
+      eventSource.addEventListener("chat", event => {
+        // console.log(event);
+        this.zone.run(() => {
+          observer.next(event);
+        });
       })
 
+      // eventSource.addEventListener("init", function (e) {
+      //   console.log("Timestamp event Received.Ready State is " + e);
+      // })
+
+      eventSource.onmessage = event => {
+        console.log(event);
+        this.zone.run(() => {
+          observer.next(event);
+        });
+      };
+
+      eventSource.onerror = error => {
+        console.log(error);
+        this.zone.run(() => {
+          observer.error(error);
+        });
+      };
+    })
   }
 
-  getListData(layoutApiUrl: string, pageIndex?: number, pageSize?: number): void {
-    // console.log(layoutApiUrl);
-    this.httpClient.get(`${this.apiUrl}/${layoutApiUrl}`)
-
-      .subscribe((data: any) => {
-        console.log(data);
-        this.onDataChanged$.next(data);
-      })
+  sendData(data): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.post('http://localhost:3000/sentevents', data).subscribe(res => {
+        resolve(res)
+      }, reject)
+    })
   }
-
 
   getUserdata() {
 

@@ -1,8 +1,10 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Formbase } from '../shared/components/formbase/formbase';
 import { FormbaseService } from '../shared/services/formbase.service';
+import { SseService } from '../shared/services/sse.service';
 import { ChatService } from './chat.service';
 
 @Component({
@@ -19,19 +21,52 @@ export class ChatComponent implements OnInit {
   drawerevnt: Boolean = false;
 
   data: any[];
+  messages: any = [];
+  message: string;
 
-  constructor(private formBaseService: FormbaseService ,public Chatservice: ChatService) { }
+  constructor(private httpClient: HttpClient, private formBaseService: FormbaseService, public ChatService: ChatService, private SseService: SseService) { }
 
   ngOnInit(): void {
-    this.data = this.Chatservice.getUserdata();
+    this.data = this.ChatService.getUserdata();
     console.log(this.data)
+
+    this.ChatService.getServerEventSource('http://localhost:3000/events')
+      .subscribe((chat) => {
+        console.log(JSON.parse(chat.data));
+        let data = JSON.parse(chat.data);
+        console.log(data);
+        this.messages = data;
+        console.log(this.messages)
+
+
+        // if (data.type === 'qrSes') {
+        //   console.log(data);
+        //   this.qr = `/qrlogin/v1/qr/${data.value}`
+        //   console.log(this.qr);
+        // }
+      });
+
   }
 
-  onAddNew(): void {
-    this.formBase = this.layout.forms ? this.layout.forms : [];
-    this.form = this.formBaseService.toFormGroup(this.formBase);
-    this.drawer.toggle();
+  sendMessage() {
+    let body = {
+      "messaging_type": "RESPONSE",
+      "recipient": {
+        "id": "4006048746106422"
+      },
+      "message": {
+        "text": this.message
+      }
+    }
+    console.log(this.message);
 
+    this.ChatService.sendData(body).then(() => {
+      this.ChatService.getServerEventSource('http://localhost:3000/events')
+        .subscribe((chat) => {
+          let data = JSON.parse(chat.data);
+          this.messages = data;
+        });
+    })
   }
 
   toggle(el) {

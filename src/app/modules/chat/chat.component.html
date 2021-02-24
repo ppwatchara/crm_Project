@@ -46,101 +46,58 @@
                             chat
                         </mat-icon> &nbsp;Follow up
                     </button>&nbsp;
-    
+
                     <button class="reslove" mat-stroked-button>
                         <mat-icon>
                             mark_chat_read
                         </mat-icon> &nbsp;Resolve
                     </button>&nbsp;
-    
+
                     <mat-form-field class="searchcontent" appearance="outline">
                         <mat-icon matSuffix>search</mat-icon>
                         <input matInput placeholder="ค้นหา">
                     </mat-form-field>
                 </div>
-               
+
 
 
             </div>
         </mat-toolbar>
 
         <div fxLayout="column" style="padding: 10px;">
-            <div fxLayout="row">
-                <div fxLayoutAlign="start center">
+            <div *ngFor="let chat of messages">
+                <div fxLayout="row" *ngFor="let item of chat?.messaging">
+                    <div fxLayoutAlign="start center">
+                        <div>
+                            <img class="leftchat-img"
+                                src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed">
+                        </div>
+                    </div>
                     <div>
-                        <img class="leftchat-img"
-                            src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed">
+                        <p class="left-chat">
+                            {{item.message.text}}
+                        </p>
                     </div>
                 </div>
-                <div>
-                    <p class="left-chat">
-                        สวัสดีครับ
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="end">
-                <div>
-                    <p class="right-chat">
-                        กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="end">
-                <div>
-                    <p class="right-chat">
-                        กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row">
-                <div fxLayoutAlign="start center">
-                    <div>
-                        <img class="leftchat-img"
-                            src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed">
+                <div fxLayout="row" fxLayoutAlign="end">
+                    <div *ngIf="chat.messaging_type">
+                        <p class="right-chat">
+                            {{chat.message.text}}
+                        </p>
                     </div>
-                </div>
-                <div>
-                    <p class="left-chat">
-                        สวัสดีครับ
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="end">
-                <div>
-                    <p class="right-chat">
-                        กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row">
-                <div fxLayoutAlign="start center">
-                    <div>
-                        <img class="leftchat-img"
-                            src="https://i.guim.co.uk/img/media/dd703cd39013271a45bc199fae6aa1ddad72faaf/0_0_2000_1200/master/2000.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=178a9434c272d5a067353f57a30f58ed">
-                    </div>
-                </div>
-                <div>
-                    <p class="left-chat">
-                        สวัสดีครับ
-                    </p>
-                </div>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="end">
-                <div>
-                    <p class="right-chat">
-                        กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่กำลังเร่งผลิตครีมสูตรใหม่
-                    </p>
                 </div>
             </div>
         </div>
 
         <footer class="toolbar-send" style="margin-top: 20px;">
-            <div fxLayout="row" fxLayoutAlign="center center" >
-                <mat-form-field class="send" appearance="outline" fxFlex>
-                    <mat-label>Types something</mat-label>
-                    <input matInput placeholder="">
-                    <mat-icon matSuffix>send</mat-icon>
-                </mat-form-field>
+            <div fxLayout="column">
+                <div fxLayout="row" fxLayoutAlign="center center">
+                    <mat-form-field class="send" appearance="outline" fxFlex>
+                        <mat-label>Types something</mat-label>
+                        <input matInput [(ngModel)]="message" placeholder="">
+                        <mat-icon matSuffix (click)="sendMessage()">send</mat-icon>
+                    </mat-form-field>
+                </div>
             </div>
         </footer>
 
