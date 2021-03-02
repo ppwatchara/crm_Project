@@ -4,6 +4,7 @@ import { NgZone } from '@angular/core';
 import { SseService } from '../shared/services/sse.service';
 import { Observable } from 'rxjs';
 import { rejects } from 'assert';
+import { promise } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,16 @@ export class ChatService {
       }, reject)
     })
   }
+
+  getlastdata(): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.httpClient.get('http://localhost:3000/lastedmessages').subscribe(res => {
+        resolve(res)
+        // console.log(res);
+      }, reject)
+    })
+  }
+
 
   getUserdata() {
 

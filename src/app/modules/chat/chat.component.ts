@@ -20,9 +20,12 @@ export class ChatComponent implements OnInit {
 
   drawerevnt: Boolean = false;
 
+
   data: any[];
+  ldata: any = [];
   messages: any = [];
   message: string;
+  lmessage: any = [];
 
   bodydata = [
     {
@@ -36,7 +39,7 @@ export class ChatComponent implements OnInit {
       "contactLineId": "ppwatchara",
       "contactAddress": "65-1",
       "chat": "สวัสดี",
-      "contactChat":[],
+      "contactChat": [],
       "chatDate": "1/12/2020",
       "created": "2021-01-27T15:04:01.496Z",
       "__v": 0,
@@ -53,20 +56,34 @@ export class ChatComponent implements OnInit {
 
     this.ChatService.getServerEventSource('http://localhost:3000/events')
       .subscribe((chat) => {
-        // console.log(JSON.parse(chat.data));
         let data = JSON.parse(chat.data);
-        // console.log(data);
-        // this.messages = data;
-        // console.log(this.messages)
-        if(data.lenght > 0){
+
+        if (data.lenght > 0) {
           data.forEach(chatSend => {
             this.bodydata[0].contactChat.push(chatSend);
           });
           this.messages = this.bodydata[0].contactChat;
-        }else{
+        } else {
           this.messages.push(data);
         }
       });
+
+
+    this.ChatService.getlastdata().then((leftchat) => {
+      this.ldata = leftchat.data
+      console.log(this.ldata)
+    })
+
+
+    // this.ChatService.getlastdata(lastdata).then(() => {
+    //   this.ChatService.getServerEventSource('http://localhost:3000/lastedmessages')
+    //     .subscribe((chat) => {
+    //       console.log(chat)
+    //       let ldata = JSON.parse(chat.ldata)
+    //       console.log(ldata);
+    //     })
+
+    // })
 
   }
 
@@ -83,7 +100,7 @@ export class ChatComponent implements OnInit {
     console.log(this.message);
 
     this.ChatService.sendData(body).then(() => {
-      this.message ='';
+      this.message = '';
       // this.ChatService.getServerEventSource('http://localhost:3000/events')
       //   .subscribe((chat) => {
       //     let data = JSON.parse(chat.data);
@@ -91,6 +108,20 @@ export class ChatComponent implements OnInit {
       //   });
     })
   }
+
+  // lastmessage() {
+  //   console.log("chat");
+  //   let lastdata;
+  //   this.ChatService.getlastdata(lastdata).then(() => {
+  //     this.ChatService.getServerEventSource('http://localhost:3000/lastedmessages')
+  //       .subscribe((chat) => {
+  //         console.log(chat)
+  //         let ldata = JSON.parse(chat.ldata);
+  //         lastdata = ldata;
+  //         console.log(lastdata);
+  //       })
+  //   })
+  // }
 
   toggle(el) {
     this.drawerevnt = el;

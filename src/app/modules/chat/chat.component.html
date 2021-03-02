@@ -13,8 +13,8 @@
             </button>
         </mat-toolbar>
         <hr>
-        <div *ngFor="let item of data" class="NameChat" fxLayout="column" (click)="toggle(true)">
-            <div class="date" fxFlexAlign="end" *ngIf="drawerevnt">{{item.chatDate}}</div>
+        <div *ngFor="let item of ldata" class="NameChat" fxLayout="column" (click)="toggle(true)">
+            <div class="date" fxFlexAlign="end" *ngIf="drawerevnt">{{item.messages.data[0].created_time | date:'shortTime'}}</div>
             <div fxLayout="row" fxLayoutAlign="start" fxFlex="100">
                 <div fxLayout="row" fxLayoutAlign="center" fxFlex="20">
                     <img class="app-logo" src={{item.contactImg}}>
@@ -22,10 +22,10 @@
                 <div fxLayout="column" fxLayoutAlign="start" fxFlex="80">
                     <div>
                         <strong>
-                            {{item.contactName}}
+                            {{item.senders.data[0].name}}
                         </strong>
                     </div>
-                    <div class="chat" fxFlexAlign="start">{{item.chat}}</div>
+                    <div class="chat" fxFlexAlign="start">{{item.snippet}}</div>
                 </div>
             </div>
         </div>
@@ -94,8 +94,7 @@
                 <div fxLayout="row" fxLayoutAlign="center center">
                     <mat-form-field class="send" appearance="outline" fxFlex>
                         <mat-label>Types something</mat-label>
-                        <textarea matInput [(ngModel)]="message"
-                            (keyup.enter)="sendMessage()" fxFlex></textarea>
+                        <textarea matInput [(ngModel)]="message" (keyup.enter)="sendMessage()" fxFlex></textarea>
                         <button mat-flat-button (click)="sendMessage()">
                             <mat-icon>send</mat-icon>
                         </button>
