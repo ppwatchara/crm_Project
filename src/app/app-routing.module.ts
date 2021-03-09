@@ -12,6 +12,10 @@ const routes: Routes = [
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
+    path: 'scrumboard',
+    loadChildren:() => import('./modules/scrumboard/scrumboard.module').then(m => m.ScrumboardModule)
+  },
+  {
     path: 'contact',
     loadChildren: () => import('./modules/generic-master/generic-master.module').then(m => m.GenericMasterModule),
     data: { layouts: ['contact'] }

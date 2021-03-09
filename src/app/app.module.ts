@@ -11,6 +11,8 @@ import { LeftFormComponent } from './modules/left-form/left-form.component';
 import { AppInterceptor } from './app.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeDbService } from './fake-db/fake-db.service';
 
 
 @NgModule({
@@ -24,6 +26,11 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
     BrowserAnimationsModule,
     Layout1Module,
     HttpClientModule,
+
+    InMemoryWebApiModule.forRoot(FakeDbService, {
+      delay             : 0,
+      passThruUnknownUrl: true
+  }),
     
   ],
   providers: [
