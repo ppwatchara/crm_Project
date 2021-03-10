@@ -16,47 +16,51 @@ import { DialogsComponent } from './board/dialogs/dialogs.component';
 import { EditBoardNameComponent } from './board/edit-board-name/edit-board-name.component';
 import { LabelSeletorComponent } from './board/dialogs/label-seletor/label-seletor.component';
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
-import { ScrumboardService } from './scrumboard.service';
+import { BoardResolve, ScrumboardService } from './scrumboard.service';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 const routes: Routes = [
   {
     path: '',
     component: ScrumboardComponent,
-    resolve  : {
-        scrumboard: ScrumboardService
+    resolve: {
+      scrumboard: ScrumboardService
     }
   },
-  // {
-  //     path     : 'boards/:boardId/:boardUri',
-  //     component: ScrumboardBoardComponent,
-  //     resolve  : {
-  //         board: BoardResolve
-  //     }
-  // },
-  // {
-  //   path: '**',
-  //   redirectTo: 'scrumbord'
-  // }
+  {
+    path: 'boards/:boardId/:boardUri',
+    component: BoardComponent,
+    resolve: {
+      board: BoardResolve
+    }
+  },
+  {
+    path: '**',
+    redirectTo: 'boards'
+  }
 ];
 
 @NgModule({
   declarations: [
-    ScrumboardComponent, 
-    BoardComponent, 
-    ListComponent, 
-    CardComponent, 
-    AddCardComponent, 
-    EditListNameComponent, 
-    AddListComponent, 
-    DialogsComponent, 
-    EditBoardNameComponent, 
+    ScrumboardComponent,
+    BoardComponent,
+    ListComponent,
+    CardComponent,
+    AddCardComponent,
+    EditListNameComponent,
+    AddListComponent,
+    DialogsComponent,
+    EditBoardNameComponent,
     LabelSeletorComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     MatTooltipModule,
+    MatChipsModule,
+
+
 
     RouterModule.forChild(routes),
 
@@ -64,7 +68,12 @@ const routes: Routes = [
 
     FuseConfirmDialogModule,
     FuseMaterialColorPickerModule
-  ]
+  ],
+  providers: [
+    ScrumboardService,
+    BoardResolve
+  ],
+  entryComponents: [DialogsComponent]
 })
-export class ScrumboardModule { 
+export class ScrumboardModule {
 }

@@ -1,15 +1,85 @@
+import { ViewEncapsulation } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { ViewChild } from '@angular/core';
+import { Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-card',
   templateUrl: './add-card.component.html',
-  styleUrls: ['./add-card.component.scss']
+  styleUrls: ['./add-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-export class AddCardComponent implements OnInit {
+export class AddCardComponent  {
+  formActive: boolean;
+  form: FormGroup;
 
-  constructor() { }
+  @Output()
+  cardAdded: EventEmitter<any>;
 
-  ngOnInit(): void {
+  @ViewChild('nameInput')
+  nameInputField;
+
+  /**
+   * Constructor
+   *
+   * @param {FormBuilder} _formBuilder
+   */
+  constructor(
+      private _formBuilder: FormBuilder
+  )
+  {
+      // Set the defaults
+      this.formActive = false;
+      this.cardAdded = new EventEmitter();
+  }
+
+  // -----------------------------------------------------------------------------------------------------
+  // @ Public methods
+  // -----------------------------------------------------------------------------------------------------
+
+  /**
+   * Open the form
+   */
+  openForm(): void
+  {
+      this.form = this._formBuilder.group({
+          name: ''
+      });
+      this.formActive = true;
+      this.focusNameField();
+  }
+
+  /**
+   * Close the form
+   */
+  closeForm(): void
+  {
+      this.formActive = false;
+  }
+
+  /**
+   * Focus to the name field
+   */
+  focusNameField(): void
+  {
+      setTimeout(() => {
+          this.nameInputField.nativeElement.focus();
+      });
+  }
+
+  /**
+   * On form submit
+   */
+  onFormSubmit(): void
+  {
+      if ( this.form.valid )
+      {
+          const cardName = this.form.getRawValue().name;
+          this.cardAdded.next(cardName);
+          this.formActive = false;
+      }
   }
 
 }
