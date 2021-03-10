@@ -315,6 +315,7 @@ export class DialogsComponent implements OnInit, OnDestroy {
   updateCard(): void
   {
       this._scrumboardService.updateCard(this.card);
+      console.log(this.card)
   }
 
 }

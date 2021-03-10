@@ -1,4 +1,4 @@
-.app-dialogs{
+.scrumboard-card-dialog {
 
     // @include media-breakpoint('xs') {
     //     width: 100%;
@@ -34,6 +34,9 @@
                             }
                         }
                     }
+                }
+                .date{
+                    right: 226px;
                 }
 
                 .mat-form-field-prefix .mat-datepicker-toggle-default-icon,
@@ -186,9 +189,6 @@
                                 font-weight: 600;
                                 white-space: nowrap;
                                 font-size: 14px;
-                            }
-
-                            .checklist-progressbar {
                             }
                         }
 
@@ -348,6 +348,7 @@
         max-height: 85vh;
         display: flex;
         flex-direction: column;
+        padding: 20px;
     }
 }
 
