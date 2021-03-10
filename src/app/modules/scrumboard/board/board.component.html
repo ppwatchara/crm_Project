@@ -11,7 +11,7 @@
                 <div fxLayout="row" fxLayoutAlign="center center" fxFlexOrder="2" fxFlexOrder.gt-xs="1">
                     <button mat-raised-button class="header-boards-button"
                             [ngClass]="board.settings.color+'-800'"
-                            routerLink="/apps/scrumboard/boards"
+                            routerLink="/scrumboard"
                             aria-label="boards button">
                         <mat-icon class="mr-8">assessment</mat-icon>
                         <span>BOARDS</span>
@@ -59,7 +59,7 @@
 
                 <!-- LIST -->
                 <app-list
-                    class="scrumboard-board-list list-wrapper ngx-dnd-item"
+                    class="app-list list-wrapper ngx-dnd-item"
                     ngxDraggable
                     *ngFor="let list of board.lists"
                     [model]="list"
@@ -82,7 +82,7 @@
     </div>
 
     <mat-sidenav #settingsSidenav position="end">
-        <!-- <scrumboard-board-settings></scrumboard-board-settings> -->
+        <app-settings></app-settings>
     </mat-sidenav>
 
 </mat-sidenav-container>

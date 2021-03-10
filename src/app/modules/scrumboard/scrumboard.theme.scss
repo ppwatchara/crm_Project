@@ -5,7 +5,7 @@
     $accent: map-get($theme, accent);
 
     // List
-    scrumboard-board-list {
+    app-list {
 
         .list {
 
@@ -27,7 +27,7 @@
     }
 
     // Add list
-    scrumboard-board-add-list {
+    app-add-list {
 
         .new-list {
             background: map-get($background, app-bar);
@@ -43,7 +43,7 @@
     }
 
     // Board
-    scrumboard-board {
+    app-board {
 
         #board {
 
@@ -55,7 +55,7 @@
     }
 
     // Add card directive
-    scrumboard-board-add-card {
+    app-add-card {
 
         .add-card-button {
             background-color: map-get($background, app-bar);
@@ -67,7 +67,7 @@
     }
 
     // Card
-    scrumboard-board-card {
+    app-card {
         background-color: map-get($background, card);
         border-color: map-get($foreground, divider);
 
@@ -107,7 +107,7 @@
     }
 
     // Card dialog
-    .scrumboard-card-dialog {
+    .app-dialogs {
 
         .mat-dialog-container {
 
@@ -173,7 +173,7 @@
     }
 
     // Settings
-    scrumboard-board-settings {
+    app-settings {
 
         .views {
 

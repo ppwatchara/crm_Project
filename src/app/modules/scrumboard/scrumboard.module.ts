@@ -18,6 +18,8 @@ import { LabelSeletorComponent } from './board/dialogs/label-seletor/label-selet
 import { NgxDnDModule } from '@swimlane/ngx-dnd';
 import { BoardResolve, ScrumboardService } from './scrumboard.service';
 import { MatChipsModule } from '@angular/material/chips';
+import { SettingsComponent } from './board/settings/settings.component';
+import { BoardColorSelectorComponent } from './board/settings/board-color-selector/board-color-selector.component';
 
 
 const routes: Routes = [
@@ -52,7 +54,9 @@ const routes: Routes = [
     AddListComponent,
     DialogsComponent,
     EditBoardNameComponent,
-    LabelSeletorComponent
+    LabelSeletorComponent,
+    SettingsComponent,
+    BoardColorSelectorComponent
   ],
   imports: [
     CommonModule,

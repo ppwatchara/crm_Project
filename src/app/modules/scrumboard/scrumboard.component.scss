@@ -1,6 +1,7 @@
 
 app-scrumboard {
     min-height: 100%;
+    background-color:whitesmoke;
 
     #boards {
         width: 100%;
@@ -29,7 +30,7 @@ app-scrumboard {
                 padding: 24px 0;
                 margin: 16px;
                 border-radius: 8px;
-                background: rgba(0, 0, 0, 0.12);
+                background: rgb(211, 211, 211);
                 transition: box-shadow 150ms ease-in;
                 cursor: pointer;
 
@@ -43,10 +44,14 @@ app-scrumboard {
                     font-size: 16px;
                     text-align: center;
                 }
+                // .s-56{
+                //     color: wheat;
+                //     // font-size: 30px;
+                // }
 
                 &.add-new-board {
-                    background: rgba(0, 0, 0, 0.06);
-                    border: 2px dashed rgba(255, 255, 255, 0.37);
+                    background: rgb(211, 211, 211);
+                    // border: 2px dashed;
                 }
             }
         }
