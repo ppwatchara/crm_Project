@@ -1,7 +1,7 @@
 <!-- CARD COVER -->
 <div *ngIf="board.settings.cardCoverImages && card.idAttachmentCover"
      class="list-card-cover">
-    <img [src]="card.attachments | getById:card.idAttachmentCover:'src'">
+    <img class ="img-cover" [src]="card.attachments | getById:card.idAttachmentCover:'src'">
 </div>
 <!-- / CARD COVER -->
 

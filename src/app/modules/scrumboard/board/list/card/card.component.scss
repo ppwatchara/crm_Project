@@ -7,6 +7,12 @@ app-card {
     border: 1px solid;
     cursor: pointer;
 
+    .img-cover{
+        width: 286px;
+        padding: 4px;
+    }
+    
+
     .list-card-sort-handle {
         display: none;
         position: absolute;
@@ -17,7 +23,7 @@ app-card {
     }
 
     .list-card-details {
-        padding: 16px 16px 0 16px;
+        padding: 16px 16px 16px 16px;
 
         .list-card-labels {
             margin-bottom: 6px;
