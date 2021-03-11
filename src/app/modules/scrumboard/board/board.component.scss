@@ -1,5 +1,5 @@
 app-board {
-    
+
 
     mat-sidenav-container {
         width: 100%;
@@ -32,6 +32,7 @@ app-board {
 
                     .header-board-name {
                         font-size: 16px;
+                      color: #FFFFFF;
 
                         .board-subscribe {
                             margin-right: 8px;
@@ -43,6 +44,9 @@ app-board {
                                 color: #FFFFFF !important;
                             }
                         }
+                    }
+                    .toolbar{
+                      color: #FFFFFF;
                     }
 
                     .right-side {
@@ -101,7 +105,7 @@ app-board {
 
             .board-content-wrapper {
                 position: relative;
-                
+
 
                 .board-content {
                     position: absolute;
