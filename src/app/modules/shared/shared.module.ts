@@ -31,6 +31,8 @@ import { DirectivesModule } from './directives/directive.module';
 import { PipesModule } from './pipes/pipe.module';
 import { FormbaseComponent } from './components/formbase/formbase.component';
 import { TablebaseComponent } from './components/formbase/tablebase.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { ProgressBarModule } from './components/progress-bar/progress-bar.module';
 
 
 @NgModule({
@@ -65,7 +67,8 @@ import { TablebaseComponent } from './components/formbase/tablebase.component';
   
 
     DirectivesModule,
-    PipesModule
+    PipesModule,
+    ProgressBarModule
   ],
   exports: [
     CommonModule,
@@ -104,6 +107,7 @@ import { TablebaseComponent } from './components/formbase/tablebase.component';
 
     FormbaseComponent,
     TablebaseComponent,
+    ProgressBarModule
 
   ]
 })

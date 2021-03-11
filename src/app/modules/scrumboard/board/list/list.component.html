@@ -3,10 +3,7 @@
     <!-- LIST HEADER -->
     <div class="list-header" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
 
-        <app-edit-list-name
-            fxFlex="1 0 auto"
-            [list]="list"
-            (listNameChanged)="onListNameChanged($event)">
+        <app-edit-list-name fxFlex="1 0 auto" [list]="list" (listNameChanged)="onListNameChanged($event)">
         </app-edit-list-name>
 
         <div fxFlex="0 1 auto">
@@ -24,15 +21,10 @@
     <!-- LIST CONTENT -->
     <div class="list-content" fxLayout="column">
 
-        <div class="list-cards ngx-dnd-container"
-             [model]="list.idCards" ngxDroppable="card" (out)="onDrop($event)"
-             fusePerfectScrollbar #listScroll>
-            <app-card ngxDraggable
-                                   (click)="openCardDialog(cardId)"
-                                   class="scrumboard-board-card ngx-dnd-item"
-                                   *ngFor="let cardId of list.idCards"
-                                   [model]="cardId"
-                                   [cardId]="cardId">
+        <div class="list-cards ngx-dnd-container" [model]="list.idCards" ngxDroppable="card" (out)="onDrop($event)"
+            fusePerfectScrollbar #listScroll>
+            <app-card ngxDraggable (click)="openCardDialog(cardId)" class="scrumboard-board-card ngx-dnd-item"
+                *ngFor="let cardId of list.idCards" [model]="cardId" [cardId]="cardId">
             </app-card>
         </div>
     </div>
