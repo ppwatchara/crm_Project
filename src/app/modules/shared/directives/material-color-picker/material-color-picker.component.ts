@@ -11,7 +11,7 @@ export const FUSE_MATERIAL_COLOR_PICKER_VALUE_ACCESSOR: any = {
 };
 
 @Component({
-    selector     : 'material-color-picker',
+    selector     : 'fuse-material-color-picker',
     templateUrl  : './material-color-picker.component.html',
     styleUrls    : ['./material-color-picker.component.scss'],
     animations   : Animations,

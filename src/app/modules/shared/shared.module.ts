@@ -103,7 +103,7 @@ import { TablebaseComponent } from './components/formbase/tablebase.component';
 
 
     FormbaseComponent,
-    TablebaseComponent
+    TablebaseComponent,
 
   ]
 })

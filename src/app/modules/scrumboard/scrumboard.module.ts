@@ -22,6 +22,7 @@ import { SettingsComponent } from './board/settings/settings.component';
 import { BoardColorSelectorComponent } from './board/settings/board-color-selector/board-color-selector.component';
 
 
+
 const routes: Routes = [
   {
     path: '',
@@ -63,6 +64,7 @@ const routes: Routes = [
     SharedModule,
     MatTooltipModule,
     MatChipsModule,
+    // FuseProgressBarModule,
 
 
 
@@ -71,7 +73,8 @@ const routes: Routes = [
     NgxDnDModule,
 
     FuseConfirmDialogModule,
-    FuseMaterialColorPickerModule
+    FuseMaterialColorPickerModule,
+   
   ],
   providers: [
     ScrumboardService,

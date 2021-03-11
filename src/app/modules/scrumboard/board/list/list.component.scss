@@ -4,10 +4,12 @@ app-list {
     max-width: 344px;
     padding-right: 24px !important;
     height: 100%;
+    
 
     .list {
         max-height: 100%;
-        border-radius: 2px;
+        border-radius: 10px;
+        background-color: #f8f8f8;
         transition: box-shadow 150ms ease;
 
         .list-header {

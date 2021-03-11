@@ -7,7 +7,7 @@
             <div fxFlex fxLayout="row" fxLayoutAlign="start center">
 
                 <!-- DUE DATE -->
-                <div class="due-date" fxFlex="0 1 auto">
+                <div class="due-date" fxFlex="0 1 auto" >
 
                     <button *ngIf="card.due" mat-icon-button [matMenuTriggerFor]="dueDateMenu">
                         <mat-icon>today</mat-icon>
@@ -17,8 +17,8 @@
                         <button mat-menu-item (click)="removeDueDate()">Remove Due Date</button>
                     </mat-menu>
 
-                    <mat-form-field *ngIf="!card.due">
-                        <input matInput [matDatepicker]="menuPicker" [(ngModel)]="card.due">
+                    <mat-form-field *ngIf="!card.due" >
+                        <input matInput [matDatepicker]="menuPicker" [(ngM odel)]="card.due">
                         <mat-datepicker-toggle matSuffix [for]="menuPicker"></mat-datepicker-toggle>
                         <mat-datepicker #menuPicker></mat-datepicker>
                     </mat-form-field>
@@ -74,18 +74,18 @@
                 <!-- / ATTACHMENT -->
 
                 <!-- CHECKLIST -->
-                <div class="due-date " fxFlex="0 1 auto">
+                <div class="due-date " fxFlex="0 1 auto" >
 
                     <button mat-icon-button class="" [matMenuTriggerFor]="checklistMenu"
                             #checklistMenuTrigger="matMenuTrigger" (menuOpened)="onChecklistMenuOpen()">
                         <mat-icon>check_box</mat-icon>
                     </button>
 
-                    <mat-menu #checklistMenu="matMenu" [overlapTrigger]="false">
+                    <mat-menu #checklistMenu="matMenu" [overlapTrigger]="false" >
 
                         <form class="px-16 py-8" #newChecklistForm="ngForm" (submit)="addChecklist(newChecklistForm)"
                               (click)="$event.stopPropagation()"
-                              fxLayout="column" fxLayoutAlign="start end">
+                              fxLayout="column" fxLayoutAlign="start end" style="padding: 10px;">
 
                             <mat-form-field appearance="outline" (click)="$event.stopPropagation()" fxFlex>
                                 <mat-label>Checklist title</mat-label>
@@ -132,8 +132,9 @@
                     </button>
 
                     <mat-menu #optionsMenu="matMenu" [overlapTrigger]="false">
-                        <button mat-menu-item (click)="removeCard()">
-                            Remove Card
+                        <button mat-menu-item (click)="removeCard()"> 
+                            <mat-icon>delete</mat-icon>
+                            ลบการ์ด                        
                         </button>
                     </mat-menu>
 
@@ -174,7 +175,7 @@
             <!-- / NAME -->
 
             <!-- DUE DATE -->
-            <div *ngIf="card.due" class="due-date px-24 pl-0" fxLayout="row" fxLayoutAlign="start center">
+            <div *ngIf="card.due" class="due-date px-24 pl-0" fxLayout="row" fxLayoutAlign="start center" >
                 <mat-form-field appearance="outline" class="w-100-p">
                     <mat-label>Due Date</mat-label>
                     <input matInput [matDatepicker]="picker" [(ngModel)]="card.due">

@@ -12,6 +12,7 @@
         padding: 0;
 
         .mat-toolbar {
+            background-color: rgb(0, 204, 255);
 
             .due-date {
 
@@ -65,7 +66,7 @@
 
             .card-name {
                 width: 100%;
-                font-size: 22px;
+                font-size: 16px;
 
                 // @include media-breakpoint(xs) {
                 //     font-size: 14px;
@@ -134,7 +135,7 @@
                                 margin: 4px;
 
                                 .member-chip-avatar {
-                                    width: 32px;
+                                    width: 50px;
                                     border-radius: 50%;
                                 }
 
@@ -180,7 +181,11 @@
                     }
 
                     .checklist {
+                .due-date{
+                    padding: 10px;
+                }
 
+                        
                         .checklist-progress {
                             margin: 0 0 16px 0;
 
@@ -354,10 +359,19 @@
 
 .scrumboard-members-menu {
     width: 240px;
+    padding: 10px;
     .mat-checkbox-layout,
     .mat-checkbox-label {
         display: flex;
         flex: 1;
+    }
+    .avatar{
+        width: 60px;
+        border-radius: 50%;
+        padding: 5px;
+    }
+    .member-name{
+        padding-left: 10px;
     }
 }
 

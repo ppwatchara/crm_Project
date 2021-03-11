@@ -1,7 +1,8 @@
 
 app-scrumboard {
-    min-height: 100%;
-    background-color:whitesmoke;
+    min-height: 83.3%;
+    background-color: #25383C;
+    
 
     #boards {
         width: 100%;
@@ -15,6 +16,8 @@ app-scrumboard {
             h1 {
                 font-size: 40px;
                 font-weight: 300;
+                color: white;
+                font-weight: bold;
             }
         }
 
