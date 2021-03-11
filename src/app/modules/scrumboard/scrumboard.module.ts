@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ScrumboardComponent } from './scrumboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
-import { MatTooltip, MatTooltipModule } from '@angular/material/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FuseMaterialColorPickerModule } from '../shared/directives/material-color-picker/material-color-picker.module';
 import { FuseConfirmDialogModule } from '../shared/components/confirm-dialog/confirm-dialog.module';
 import { BoardComponent } from './board/board.component';
@@ -74,7 +74,7 @@ const routes: Routes = [
 
     FuseConfirmDialogModule,
     FuseMaterialColorPickerModule,
-   
+
   ],
   providers: [
     ScrumboardService,
