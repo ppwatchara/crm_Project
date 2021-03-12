@@ -73,7 +73,7 @@ export class ScrumboardComponent implements OnInit, OnDestroy
   {
       const newBoard = new Board({});
       this._scrumboardService.createNewBoard(newBoard).then(() => {
-          this._router.navigate(['/apps/scrumboard/boards/' + newBoard.id + '/' + newBoard.uri]);
+          this._router.navigate(['scrumboard/boards/' + newBoard.id + '/' + newBoard.uri]);
       });
   }
 
