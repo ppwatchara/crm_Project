@@ -10,7 +10,7 @@
                     <input matInput type="search" placeholder="ค้นหา" style="padding-left:10px;" [(ngModel)]="search">
                 </div>
                 <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
-                    <button mat-flat-button color="primary" (click)="onAddNew()">
+                    <button mat-flat-button class = "add" (click)="onAddNew()">
                         <div fxFlex fxLayout="row" fxLayoutAlign="center center">
                             สร้าง{{ layout?.value }}
                         </div>
@@ -42,7 +42,7 @@
             </div>
 
             <div fxLayoutAlign="center end">
-                <button fxFlex="80" mat-raised-button color="primary" type="submit"
+                <button fxFlex="80" mat-raised-button class ="confbtn" type="submit"
                     [disabled]="!form?.valid">ยืนยัน</button>
             </div>
         </form>

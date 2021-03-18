@@ -11,7 +11,7 @@ $user-btn-color : rgb(36, 19, 19);
 .sidenav {
 
   width: 80px;
-  //background-color: mat-color($ng-app-primary);
+  background-color: rgb(0, 162, 255);
 
   .mat-toolbar {
     color: $nav-font-color;
@@ -88,7 +88,11 @@ $user-btn-color : rgb(36, 19, 19);
   height: 40px;
   font-size: 16px;
   font-weight: normal;
-  background-color: black;
+  background-color: rgb(0, 162, 255);
+  color: white;
+}
+
+mat-icon{
   color: white;
 }
 

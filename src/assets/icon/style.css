@@ -35,25 +35,25 @@
 }
 .icon-handshake:before {
   content: "\e900";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .icon-building:before {
   content: "\e901";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .icon-clipboard:before {
   content: "\e902";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .icon-parcel:before {
   content: "\e903";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .icon-people:before {
   content: "\e906";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }
 .icon-dashboard:before {
   content: "\e907";
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
 }

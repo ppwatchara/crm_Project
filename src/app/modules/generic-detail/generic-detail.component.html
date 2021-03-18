@@ -17,7 +17,7 @@
                     <div fxFill fxLayout="row" fxLayoutAlign="start center">
                         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
                             <span>รายการ{{layout?.value | titlecase}}</span>
-                            
+
                         </div>
                         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
                             <mat-icon matPrefix style="padding-left: 50px;">search</mat-icon>
@@ -25,7 +25,7 @@
                                 [(ngModel)]="search">
                         </div>
                         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
-                            <button mat-flat-button color="primary" (click)="onAddNew()"
+                            <button mat-flat-button class="add" (click)="onAddNew()"
                                 *ngIf="selected?.key !== 'file-layouts'">
                                 <div fxFlex fxLayout="row" fxLayoutAlign="center center">
                                     เพิ่ม{{layout?.value | titlecase}}
@@ -37,7 +37,8 @@
                 <div *ngIf="tab?.table">
                     <app-tablebase [dataSource]="genericDetailService.onDataChangedObservable$ | async | filter:search"
                         [table]="tab.table" (onEditRow)="onEdit($event)" (onDeleteRow)="onDelete($event)"
-                        (onDetailRow)="onDetail($event)" (onCloneRow)="onClone($event)"  (onPageEventChanged)="getServerData($event)">
+                        (onDetailRow)="onDetail($event)" (onCloneRow)="onClone($event)"
+                        (onPageEventChanged)="getServerData($event)">
                     </app-tablebase>
 
                 </div>
