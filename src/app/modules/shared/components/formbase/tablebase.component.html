@@ -33,10 +33,10 @@
                         <mat-icon>edit</mat-icon>
                         <span>แก้ไข</span>
                     </button>
-                    <button mat-menu-item (click)="onClone(row)" *ngIf="table.menu?.include('clone') || true">
+                    <!-- <button mat-menu-item (click)="onClone(row)" *ngIf="table.menu?.include('clone') || true">
                         <mat-icon>file_copy</mat-icon>
                         <span>คัดลอกและสร้างใหม่</span>
-                    </button>
+                    </button> -->
                     <button mat-menu-item (click)="onDelete(row)" *ngIf="table.menu?.include('delete') || true">
                         <mat-icon>delete</mat-icon>
                         <span>ลบ</span>
