@@ -1,8 +1,10 @@
+import { ViewEncapsulation } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { map, takeUntil } from 'rxjs/operators';
+import { Animations } from '../../shared/animations';
 import { Formbase } from '../../shared/components/formbase/formbase';
 import { FormbaseService } from '../../shared/services/formbase.service';
 import { AuthService } from '../auth.service';
@@ -10,7 +12,9 @@ import { AuthService } from '../auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  animations: Animations
 })
 export class LoginComponent implements OnInit {
   formBase: Formbase<string>[] = [];
