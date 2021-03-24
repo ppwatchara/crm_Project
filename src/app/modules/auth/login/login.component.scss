@@ -1,4 +1,4 @@
-@import "/src/app/modules/shared/scss/app.scss";
+@import "../../shared/scss/app.scss";
 
 .mat-drawer-container {
   width: 100%;
@@ -13,10 +13,9 @@
 
   .login-content-panel {
     width: 100%;
-    background-image: url("/src/assets/backgrounds/dark-material-bg.jpg");
-    // background-color: black;
+    background: url('../../../../assets/backgrounds/dark-material-bg.jpg') no-repeat;
     background-size: cover;
-    color: rgb(255, 255, 255);
+    color: white;
     padding: 128px;
 
     @include media-breakpoint('sm') {
@@ -39,6 +38,10 @@
       font-size: 14px;
       max-width: 600px;
     }
+  }
+  .login{
+    background-color: rgb(0, 162, 255);
+    color: white;
   }
 
 

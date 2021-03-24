@@ -16,22 +16,22 @@
     </mat-drawer-content>
     <mat-drawer class="login-right-panel" mode="side" opened="true" position="end">
 
-        <!-- <form class="content" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
+        <form class="content" (ngSubmit)="onSubmit()" [formGroup]="form" *ngIf="form">
             <h1>{{layout?.value}}</h1>
             <div *ngFor="let control of formBase">
-               <app-formbase [form]="form" [control]="control"></app-formbase> -->
+                <app-formbase [form]="form" [control]="control"></app-formbase>
                 <!-- Insert this code to track events. => (change)="control.key=='companyCode' && test($event.target.value)" -->
-            <!-- </div>
+            </div>
 
             <div>
                 &nbsp;&nbsp;
             </div>
 
             <div fxLayoutAlign="center end">
-                <button fxFlex="80" mat-raised-button color="primary" type="submit"
-                    [disabled]="!form?.valid">LOGIN</button>
+                <button fxFlex="80" mat-raised-button class="login" type="submit"
+                [disabled]="!form?.valid" >LOGIN</button>
             </div>
-        </form> --> 
+        </form>
     </mat-drawer>
 
 </mat-drawer-container>

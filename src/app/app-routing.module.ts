@@ -13,12 +13,14 @@ const routes: Routes = [
   },
   {
     path: 'scrumboard',
-    loadChildren:() => import('./modules/scrumboard/scrumboard.module').then(m => m.ScrumboardModule)
+    loadChildren:() => import('./modules/scrumboard/scrumboard.module').then(m => m.ScrumboardModule),
+    canActivate:[AuthGuard]
   },
   {
     path: 'contact',
     loadChildren: () => import('./modules/generic-master/generic-master.module').then(m => m.GenericMasterModule),
-    data: { layouts: ['contact'] }
+    data: { layouts: ['contact'] },
+    canActivate:[AuthGuard]
   },
   {
     path: 'contact/:id',
@@ -28,12 +30,13 @@ const routes: Routes = [
       lookupFields: ['noteRelateID', 'relateToID',  'dealContact','contactAddress','contactPhoneNo', 'contactLineId'],
       layouts: ['notes', 'activitiestask', 'activitiesevent', 'activitiescall', 'deals']
     },
-    // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'customer',
     loadChildren: () => import('./modules/generic-master/generic-master.module').then(m => m.GenericMasterModule),
-    data: { layouts: ['customer'] }
+    data: { layouts: ['customer'] },
+    canActivate:[AuthGuard]
   },
   {
     path: 'customer/:id',
@@ -43,12 +46,13 @@ const routes: Routes = [
       lookupFields: ['noteRelateID', 'relateToID', 'dealCustomer'],
       layouts: ['notes', 'activitiestask', 'activitiesevent', 'activitiescall', 'deals']
     },
-    // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'deals',
     loadChildren: () => import('./modules/generic-master/generic-master.module').then(m => m.GenericMasterModule),
-    data: { layouts: ['deals'] }
+    data: { layouts: ['deals'] },
+    canActivate:[AuthGuard]
   },
   {
     path: 'deals/:id',
@@ -58,7 +62,7 @@ const routes: Routes = [
       lookupFields: ['noteRelateID', 'relateToID', 'dealCustomer', 'dealContact', 'deal'],
       layouts: ['fm-mk-06', 'fm-mk-13', 'fm-mk-11', 'so']
     },
-    // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'note',
@@ -73,7 +77,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['fm-mk-06-dtl']
     },
-    // canActivate:[AuthGuard]
+    canActivate:[AuthGuard]
   },
   {
     path: 'fm-mk-06-dtl/:id',
@@ -83,7 +87,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['bom','route', 'spec-result']
     },
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'fm-mk-13/:id',
@@ -93,7 +97,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['fm-mk-13-dtl']
     },
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'fm-mk-11/:id',
@@ -103,7 +107,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['fm-mk-11-dtl']
     },
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'so/:id',
@@ -113,7 +117,7 @@ const routes: Routes = [
       lookupFields: ['hdr'],
       layouts: ['so-dtl']
     },
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'chat',

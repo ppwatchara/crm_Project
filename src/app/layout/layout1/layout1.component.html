@@ -54,21 +54,23 @@
           <!-- <button type="button" aria-label="Toggle sidenav" mat-icon-button>
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
           </button> -->
-          <span>Module Name</span>
+          <span>W50 CRM Module</span>
         </div>
         <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
           <div fxFlex fxLayout="column" fxLayoutAlign="start center" class="user-info-bar">
-            <h3>Koh Theerasak</h3>
+            <h3>
+              Pee Watcharapong
+            </h3>
             <span>Cyber Advance System And Network</span>
           </div>
           <button mat-icon-button>
             <div class="user-button" [matMenuTriggerFor]="userMenu" fxFlex fxLayout="row" fxLayoutAlign="center center">
-              KT
+              PW
             </div>
           </button>
 
           <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="logout()">
               <mat-icon>exit_to_app</mat-icon>
               <span>Logout</span>
             </button>
